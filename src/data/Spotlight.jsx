@@ -29,12 +29,13 @@ const SpotlightButton = () => {
       );
     };
 
-    btnRef.current.addEventListener("mousemove", handleMouseMove);
-    btnRef.current.addEventListener("mouseleave", handleMouseLeave);
+    const btnElement = btnRef.current;
+    btnElement.addEventListener("mousemove", handleMouseMove);
+    btnElement.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
-      btnRef.current.removeEventListener("mousemove", handleMouseMove);
-      btnRef.current.removeEventListener("mouseleave", handleMouseLeave);
+      btnElement.removeEventListener("mousemove", handleMouseMove);
+      btnElement.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, []);
 
@@ -42,7 +43,7 @@ const SpotlightButton = () => {
     <motion.button
       whileTap={{ scale: 0.985 }}
       ref={btnRef}
-      className="relative w-full max-w-xs overflow-hidden rounded-lg bg-slate-950 px-4 py-3 text-lg font-medium text-white bg-black border-2 border-slate-950" 
+      className="relative w-full max-w-xs overflow-hidden rounded-lg bg-slate-950 px-4 py-3 text-lg font-medium text-white bg-black border-2 border-slate-950"
     >
       <span className="pointer-events-none relative z-30 mix-blend-difference">
         Register Now
